@@ -10,13 +10,13 @@
 var express = require("express");
 var expresshbs = require("express-handlebars");
 var bodyParser = require("body-parser");
-var routes;
 
 var PORT = process.env.port || 3000;
 var app = express();
+var routes;
 
 
-// Serve static content from the public directory (e.g. burger_style.css)
+// serve static content from the public directory (e.g. burger_style.css)
 app.use(express.static("public"));
 
 // parse application/x-www-form-urlencoded and json
@@ -39,8 +39,8 @@ routes = require("./controllers/burger_controller.js");
 
 app.use(routes);
 
-// start server listener for client requests
+// launch server listener for client requests
 app.listen(PORT, () => {
-  // Log server-side when server has started
+  // server-side log when server has started
   console.log("Server listening on: http://localhost:" + PORT);
 });
