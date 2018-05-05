@@ -19,7 +19,7 @@ if (process.env.JAWSDB_URL) {
   "host": "localhost",
 
   // database username and password
-  "user": "root",
+  "user": "dbuser",
   "password": "",
 
   // database name
