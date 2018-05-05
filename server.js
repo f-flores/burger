@@ -11,7 +11,7 @@ var express = require("express");
 var expresshbs = require("express-handlebars");
 var bodyParser = require("body-parser");
 
-var PORT = process.env.port || 3000;
+var PORT = process.env.PORT || 3000;
 var app = express();
 var routes;
 
