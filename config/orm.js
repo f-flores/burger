@@ -2,8 +2,8 @@
 //
 // File name: orm.js
 // Description: ORM is an object relational mapping.
-//  Code based on template given out in Rutgers Coding Bootcamp
-//  
+//  Code largely based on template given out in Rutgers Coding Bootcamp
+//  https://github.com/RutgersCodingBootcamp/RUTSOM201801FSF4-Class-Repository-FSF/blob/master/14-handlebars/1-Class-Content/14.3/Activities/18-CatsApp/Solved/config/orm.js
 //
 // ================================================================================
 
