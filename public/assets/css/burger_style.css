@@ -139,6 +139,32 @@ html {
       list-style-type: none; }
     html body .custom-nav-header {
       background: #73252F; }
+    html body .img-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 20%; }
+    html body .burger-button {
+      display: inline-block;
+      width: 90%;
+      margin: 0 auto;
+      padding: 4px;
+      border-radius: 10px;
+      font-weight: bold;
+      text-align: center; }
+    html body .change-devoured {
+      background: linear-gradient(to right, #a67939, #845108);
+      color: blanchedalmond; }
+    html body .change-devoured:hover {
+      background: linear-gradient(to right, #805d2c, #543305);
+      color: blanchedalmond; }
+    html body .delete-burger {
+      width: 60%;
+      background: linear-gradient(to right, #f62b2b, #d20202);
+      color: blanchedalmond; }
+    html body .delete-burger:hover {
+      background: linear-gradient(to right, #e40a0a, #9f0202);
+      color: blanchedalmond; }
 
 /* box model */
 *, *:before, *:after {

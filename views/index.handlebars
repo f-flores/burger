@@ -1,27 +1,28 @@
 <h1 class="d-flex display-4 justify-content-center">Hamburger Menu</h1>
+<img class="img-fluid img-center" src="./assets/img/hamburger-1294647_960_720.png" alt="Hamburger Source: https://pixabay.com/en/hamburger-food-fast-food-snack-1294647/">
 
 <div class="row">
   <h2 class="col-xs-12 col-sm-6 d-flex display-5 justify-content-center">Available</h2>
   <h2 class="col-xs-12 col-sm-6 d-flex display-5 justify-content-center">Devoured</h2>
 </div>
 
-<div class="row">
-  <ul class="col-xs-12 col-sm-6 burger-list">
+<div class="row mb-2">
+  <table class="col-xs-12 col-sm-5 burger-list mb-1">
     {{#each burgers}}
       {{#unless devoured}}
         {{> burgers/burger-block devoured=true}}
       {{/unless}}
     {{/each}}
-  </ul>
+  </table>
 
 
-  <ul class="col-xs-12 col-sm-6 burger-list">
+  <table class="col-xs-12 offset-sm-2 col-sm-5 burger-list mb-1">
     {{#each burgers}}
       {{#if devoured}}
         {{> burgers/burger-block devoured=false}}
       {{/if}}
     {{/each}}
-  </ul>
+  </table>
 </div>
 
 <h2>Add a Burger</h2>
@@ -34,9 +35,20 @@
 
   <div class="form-group">
     <label for="burger-devoured">Devoured?</label><br>
-    <input type="radio" name="devoured" value="1" checked> Devoured!<br>
+    <input type="radio" name="devoured" value="1" checked> Devoured<br>
     <input type="radio" name="devoured" value="0"> Available
+  </div>
+
+  <div class="form-group">
+    <select class="opt-selected">
+      <option class="placeholder-option" selected="selected" value="placeholder" disabled selected>Select from burger list</option>
+      {{#each burgerOptions}}
+        <option value={{burgerType}}><strong>{{burgerType}}</strong></option>
+      {{/each}}
+    </select>
   </div>
 
   <button type="submit">Add Burger</button>
 </form>
+
+
