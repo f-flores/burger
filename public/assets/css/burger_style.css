@@ -1,10 +1,12 @@
 /* stylesheet */
 html {
   box-sizing: border-box;
-  margin-left: 20%;
-  margin-right: 20%; }
+  background: linear-gradient(to right, #D7A134, #DBBB7D); }
   html body {
-    background-color: blanchedalmond;
+    font-family: "Roboto Slab", serif;
+    background: inherit;
+    margin-left: 15%;
+    margin-right: 15%;
     /*    background-image: url("../images/spiration-light.png"); */
     /*     width: 90%;
 
@@ -131,6 +133,10 @@ html {
       transition: 0s
     }
  */ }
+    html body h1, html body h2, html body h3 {
+      font-family: "Acme", sans-serif; }
+    html body .custom-nav-header {
+      background: #73252F; }
 
 /* box model */
 *, *:before, *:after {
