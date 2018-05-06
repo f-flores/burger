@@ -135,6 +135,8 @@ html {
  */ }
     html body h1, html body h2, html body h3 {
       font-family: "Acme", sans-serif; }
+    html body .burger-list {
+      list-style-type: none; }
     html body .custom-nav-header {
       background: #73252F; }
 

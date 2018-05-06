@@ -1,24 +1,28 @@
-<h1>Burger List</h1>
+<h1 class="d-flex display-4 justify-content-center">Hamburger Menu</h1>
 
-<h2>Burgers Available</h2>
+<div class="row">
+  <h2 class="col-xs-12 col-sm-6 d-flex display-5 justify-content-center">Available</h2>
+  <h2 class="col-xs-12 col-sm-6 d-flex display-5 justify-content-center">Devoured</h2>
+</div>
 
-<ul>
-  {{#each burgers}}
-    {{#unless devoured}}
-      {{> burgers/burger-block devoured=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
+<div class="row">
+  <ul class="col-xs-12 col-sm-6 burger-list">
+    {{#each burgers}}
+      {{#unless devoured}}
+        {{> burgers/burger-block devoured=true}}
+      {{/unless}}
+    {{/each}}
+  </ul>
 
-<h2>Burgers devoured</h2>
 
-<ul>
-  {{#each burgers}}
-    {{#if devoured}}
-      {{> burgers/burger-block devoured=false}}
-    {{/if}}
-  {{/each}}
-</ul>
+  <ul class="col-xs-12 col-sm-6 burger-list">
+    {{#each burgers}}
+      {{#if devoured}}
+        {{> burgers/burger-block devoured=false}}
+      {{/if}}
+    {{/each}}
+  </ul>
+</div>
 
 <h2>Add a Burger</h2>
 <form class="create-form">
