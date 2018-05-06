@@ -29,7 +29,7 @@ if (process.env.JAWSDB_URL) {
 }
 
 // make connection
-connection.connect((err) => {
+connection.connect(function(err) {
   if (err) {
     console.log("Database connection error: " + err.stack);
     throw err;

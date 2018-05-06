@@ -57,10 +57,10 @@ function objToSql(ob) {
 
 orm = {
   // all template
-  "all": (tableInput, cb) => {
+  all(tableInput, cb) {
     var queryString = "SELECT * FROM " + tableInput + ";";
 
-    connection.query(queryString, (err, result) => {
+    connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
       }
@@ -69,7 +69,7 @@ orm = {
     });
   },
   // insert template
-  "create": (table, cols, vals, cb) => {
+  create(table, cols, vals, cb) {
     var queryString = "INSERT INTO " + table;
 
     queryString += " (";
@@ -81,7 +81,7 @@ orm = {
 
     console.log(queryString);
 
-    connection.query(queryString, vals, (err, result) => {
+    connection.query(queryString, vals, function(err, result) {
       if (err) {
         throw err;
       }
@@ -90,7 +90,7 @@ orm = {
     });
   },
   // An example of objColVals would be {name: panther, sleepy: true}
-  "update": (table, objColVals, condition, cb) => {
+  update(table, objColVals, condition, cb) {
     var queryString = "UPDATE " + table;
 
     queryString += " SET ";
@@ -99,7 +99,7 @@ orm = {
     queryString += condition;
 
     console.log(queryString);
-    connection.query(queryString, (err, result) => {
+    connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
       }
@@ -107,13 +107,13 @@ orm = {
       cb(result);
     });
   },
-  "delete": (table, condition, cb) => {
+  delete(table, condition, cb) {
     var queryString = "DELETE FROM " + table;
 
     queryString += " WHERE ";
     queryString += condition;
 
-    connection.query(queryString, (err, result) => {
+    connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
       }
