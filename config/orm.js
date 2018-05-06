@@ -2,6 +2,8 @@
 //
 // File name: orm.js
 // Description: ORM is an object relational mapping.
+//  Code based on template given out in Rutgers Coding Bootcamp
+//  
 //
 // ================================================================================
 
@@ -22,7 +24,7 @@ function printQuestionMarks(num) {
   var arr = [],
       ind;
 
-  for (ind = 0; i < num; ind++) {
+  for (ind = 0; ind < num; ind++) {
     arr.push("?");
   }
 
