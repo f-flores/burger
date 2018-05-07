@@ -38,10 +38,10 @@ router.post("/api/burgers", function(req, res) {
   burger.confirm(condition, function(data) {
     console.log("burger.confirm duplicate data if length >= 1: " + data.length);
     if (data.length >= 1) {
-      // on duplicate end post
+      // on duplicate entry, simply exit with successful status code
       res.status(200).end();
     } else {
-    // otherwise burger is added to list
+    // otherwise burger is added to burger_db
       burger.create(
         ["burger_name", "devoured"],
         [req.body.burger_name, req.body.devoured], function(result) {

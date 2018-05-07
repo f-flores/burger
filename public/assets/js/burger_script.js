@@ -5,7 +5,7 @@
 //
 // ================================================================================
 
-$(document).ready(function() {  
+$(document).ready(function() {
   const MAX_BURGERCHARS = 70;
   var toggleState = localStorage.getItem("toggleState");
 
