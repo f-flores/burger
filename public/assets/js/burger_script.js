@@ -6,6 +6,9 @@
 // ================================================================================
 
 $(document).ready(function() {
+  const MAX_BURGERCHARS = 70;
+  var toggleState = "enabled";
+
   console.log("in burger_script.js");
 
   // -------------------------------------------------------------------------
@@ -16,9 +19,8 @@ $(document).ready(function() {
   function checkBurgerInput() {
     var isValid = true;
 
-    if ($("#bu").val().length < 2) {
-
-      $("#burger-error").html("<p class=\"error-msg\">Invalid name must be at least 2 alpha characters long.</p>");
+    if ($("#bu").val().length < 2 || $("#bu").val().length > MAX_BURGERCHARS) {
+      $("#burger-error").html("<p class=\"error-msg\">Invalid name must be between 2 and " + MAX_BURGERCHARS + " characters long.</p>");
       isValid = false;
     } else {
       $("#burger-error").html("");
@@ -34,7 +36,7 @@ $(document).ready(function() {
     $(".opt-selected").each(function() {
       console.log(".opt-select val: " + $(this).val());
       if ($(this).val() === null) {
-        $("#burger-error").html("<p class=\"error-msg\">Please select burger option or input text in burger name.</p>");
+        $("#burger-error").html("<p class=\"error-msg\">Please select burger option or type in burger name (at least 2 characters).</p>");
         isValid = false;
       } else {
         $("#burger-error").html("");
@@ -100,15 +102,6 @@ $(document).ready(function() {
       newBurger = {"burger_name": burgerName};
       newBurger.devoured = 0;
 
-/*       userInfo = {
-        "name": $("#friendName").val(),
-        "photo": $("#friendPhoto").val(),
-        "scores": [ $("#qtn1").val(), $("#qtn2").val(),
-                    $("#qtn3").val(), $("#qtn4").val(),
-                    $("#qtn5").val(), $("#qtn6").val(),
-                    $("#qtn7").val(), $("#qtn8").val(),
-                    $("#qtn9").val(), $("#qtn10").val()] */
-
       console.log("in create-form submit button: ", newBurger.burger_name, newBurger.devoured);
 
       // post data to api
@@ -140,5 +133,22 @@ $(document).ready(function() {
       });
   });
 
+  // --------------------------------------------------------------------------------------
+  // toggle another
+  //
+  $("#toggle-another").on("click", function() {
+    toggleState = $(this).attr("data-toggle");
+
+    console.log("toggleState: " + toggleState);
+    // event.preventDefault();
+
+    if (toggleState === "enabled") {
+      $(this).attr("data-toggle", "disabled");
+      $(".devoured-tbl .burger-button").hide();
+    } else {
+      $(this).attr("data-toggle", "enabled");
+      $(".devoured-tbl .burger-button").show();
+    }
+  });
 
 });
