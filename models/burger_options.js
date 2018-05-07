@@ -15,6 +15,7 @@ var burgerOptions = [
   {"burgerType": "Patty Melt"},
   {"burgerType": "Rice Burger"},
   {"burgerType": "Salmon Burger"},
+  {"burgerType": "Cheeseburger w/Grilled Onions"},
   {"burgerType": "Slider"},
   {"burgerType": "Slugburger"},
   {"burgerType": "Steak Burger"},
