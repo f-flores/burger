@@ -27,9 +27,10 @@ app.use(bodyParser.json());
 app.engine("handlebars", expresshbs({
   "defaultLayout": "main",
   "helpers": {
-    "addOne": (value) => parseInt(value, 10) + 1,
-    "makeId": (value) => "qtn" + (parseInt(value, 10) + 1).toString(),
-    "selErrorId": (value) => "select-error-" + (parseInt(value,10) + 1).toString()
+    "addOne": (value) => parseInt(value, 10) + 1
+    // ,
+    // "makeId": (value) => "qtn" + (parseInt(value, 10) + 1).toString(),
+    // "selErrorId": (value) => "select-error-" + (parseInt(value,10) + 1).toString()
   }
 }));
 app.set("view engine", "handlebars");
