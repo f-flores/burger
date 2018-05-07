@@ -5,11 +5,23 @@
 //
 // ================================================================================
 
-$(document).ready(function() {
+$(document).ready(function() {  
   const MAX_BURGERCHARS = 70;
-  var toggleState = "enabled";
+  var toggleState = localStorage.getItem("toggleState");
 
   console.log("in burger_script.js");
+
+  if (!toggleState) {
+    localStorage.setItem("toggleState", "disabled");
+  }
+  toggleState = localStorage.getItem("toggleState");
+  $("#toggle-another").attr("data-toggle", toggleState);
+
+  if (toggleState === "enabled") {
+    $(".devoured-tbl .burger-button").show();
+  } else {
+    $(".devoured-tbl .burger-button").hide();
+  }
 
   // -------------------------------------------------------------------------
   // helper functions
@@ -46,6 +58,34 @@ $(document).ready(function() {
     return isValid;
   }
 
+  function setToggleState() {
+    if (toggleState === "enabled") {
+      localStorage.setItem("toggleState", "disabled");
+      $("#toggle-another").attr("data-toggle", "disabled");
+      $(".devoured-tbl .burger-button").hide();
+    } else {
+      localStorage.setItem("toggleState", "enabled");
+      $("#toggle-another").attr("data-toggle", "enabled");
+      $(".devoured-tbl .burger-button").show();
+    }
+  }
+
+  $(".opt-selected").each(function() {
+    $(this).change(function() {
+      var current = $(this).val();
+
+      console.log("in opt-selected: " + current);
+
+      if (current === "") {
+        $(this).css("color","gray");
+      } else {
+        $(this).css("color","black");
+        $(this).css("font-weight","bold");
+        $(this).css("border","2px solid #3B5998");
+      }
+    });
+  });
+
   // -------------------------------------------------------------------------------
   // update
   //
@@ -56,9 +96,6 @@ $(document).ready(function() {
 
     event.preventDefault();
 
-    console.log("in change-devoured: id: ", id);
-    console.log("in change-devoured: devoured: ", newDevour);
-
     // Send the PUT request.
     $.ajax("/api/burgers/" + id, {
       "type": "PUT",
@@ -67,7 +104,7 @@ $(document).ready(function() {
         console.log("changed devoured to", newDevour);
         // Reload the page to get the updated list
         location.reload();
-      });
+    });
   });
 
   // --------------------------------------------------------------------------------
@@ -79,14 +116,12 @@ $(document).ready(function() {
 
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
+    $("#burger-error").hide();
 
     // validate form
     function formValidated() {
       var isValidBurgerName = checkBurgerInput(),
           isBurgerSelected = checkBurgerMenu();
-
-      console.log("isValidBurgerName: " + isValidBurgerName);
-      console.log("isBurgerSelected: " + isBurgerSelected);
 
       return isValidBurgerName || isBurgerSelected;
     }
@@ -102,14 +137,14 @@ $(document).ready(function() {
       newBurger = {"burger_name": burgerName};
       newBurger.devoured = 0;
 
-      console.log("in create-form submit button: ", newBurger.burger_name, newBurger.devoured);
-
       // post data to api
       $.post("/api/burgers", newBurger, function(data) {
         console.log("created new burger: " + data);
         // Reload the page to get the updated list
         location.reload();
       });
+    } else {
+      $("#burger-error").show();
     }
 
   });
@@ -138,17 +173,12 @@ $(document).ready(function() {
   //
   $("#toggle-another").on("click", function() {
     toggleState = $(this).attr("data-toggle");
-
-    console.log("toggleState: " + toggleState);
-    // event.preventDefault();
-
-    if (toggleState === "enabled") {
-      $(this).attr("data-toggle", "disabled");
-      $(".devoured-tbl .burger-button").hide();
-    } else {
-      $(this).attr("data-toggle", "enabled");
-      $(".devoured-tbl .burger-button").show();
+    if (localStorage) {
+      // Store data
+      localStorage.setItem("toggleState", toggleState);
     }
+
+    setToggleState();
   });
 
 });

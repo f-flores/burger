@@ -1,30 +1,26 @@
 var burgerOptions = [
   {"burgerType": "California Cheeseburger"},
-  {"burgerType": "Double Cheeseburger"}
-  /* ,
-  {
-    "question": "You are able to handle stressful situations in a calm manner."
-  },
-  {
-    "question": "In general, you like to eat healthily."
-  },
-  {
-    "question": "Playing a game is fun only if you win."
-  },
-  {
-    "question": "You are an extroverted and enthusiastic person."
-  },
-  {
-    "question": "While financial well-being is important, this does not rule every aspect of your life."
-  },
-  {
-    "question": "You respect other people's points of view and like to have healthy discussions."
-  },
-  {
-    "question": "You do not get upset too easily."
-  },
-  {
-    "question": "You enjoy exercising."
-  } */];
+  {"burgerType": "Double Cheeseburger"},
+  {"burgerType": "50/50 Burger"},
+  {"burgerType": "Angus Burger"},
+  {"burgerType": "Bacon Cheeseburger"},
+  {"burgerType": "Barbecue Burger"},
+  {"burgerType": "Carolina Burger"},
+  {"burgerType": "Cheesburger"},
+  {"burgerType": "Chili Burger"},
+  {"burgerType": "Hawaii Burger"},
+  {"burgerType": "Kimchi Burger"},
+  {"burgerType": "Luther Burger"},
+  {"burgerType": "Naan Burger"},
+  {"burgerType": "Patty Melt"},
+  {"burgerType": "Rice Burger"},
+  {"burgerType": "Salmon Burger"},
+  {"burgerType": "Slider"},
+  {"burgerType": "Slugburger"},
+  {"burgerType": "Steak Burger"},
+  {"burgerType": "Steamed Cheeseburger"},
+  {"burgerType": "Teriyaki Burger"},
+  {"burgerType": "Veggie Burger"}
+];
 
 module.exports = burgerOptions;
