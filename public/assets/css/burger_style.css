@@ -7,6 +7,12 @@ html {
     background: inherit;
     margin-left: 15%;
     margin-right: 15%;
+    /*     .form-end {
+      display: block;
+    } */
+    /*     #add-bu-btn {
+      display: inline;
+    } */
     /*    background-image: url("../images/spiration-light.png"); */
     /*     width: 90%;
 
@@ -135,8 +141,10 @@ html {
  */ }
     html body h1, html body h2, html body h3 {
       font-family: "Acme", sans-serif; }
-    html body .burger-list {
-      list-style-type: none; }
+    html body a:link, html body a:hover {
+      text-decoration: none; }
+    html body .burger-tbl td {
+      padding: 5px; }
     html body .custom-nav-header {
       background: #73252F; }
     html body .img-center {
@@ -148,10 +156,10 @@ html {
       display: inline-block;
       width: 90%;
       margin: 0 auto;
-      padding: 4px;
-      border-radius: 10px;
+      padding: 2px 4px;
       font-weight: bold;
-      text-align: center; }
+      text-align: center;
+      border-radius: 8px; }
     html body .change-devoured {
       background: linear-gradient(to right, #a67939, #845108);
       color: blanchedalmond; }
@@ -159,12 +167,34 @@ html {
       background: linear-gradient(to right, #805d2c, #543305);
       color: blanchedalmond; }
     html body .delete-burger {
-      width: 60%;
+      width: 80%;
       background: linear-gradient(to right, #f62b2b, #d20202);
       color: blanchedalmond; }
     html body .delete-burger:hover {
       background: linear-gradient(to right, #e40a0a, #9f0202);
       color: blanchedalmond; }
+    html body .add-burger {
+      width: 40%;
+      background: linear-gradient(to right, #90A644, #798d2f);
+      color: #73252F; }
+    html body .add-burger:hover {
+      background: linear-gradient(to right, #6c7c33, #516119);
+      color: black; }
+    html body .footer {
+      margin-top: 10px; }
+      html body .footer a {
+        color: #A66640; }
+      html body .footer a:hover {
+        color: #73252F; }
+    html body .text-large {
+      font-size: 1.4rem;
+      font-weight: bold; }
+    html body .error-msg {
+      display: inline;
+      color: red;
+      font-weight: bold; }
+    html body .burger-error {
+      display: inline; }
 
 /* box model */
 *, *:before, *:after {

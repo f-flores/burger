@@ -34,6 +34,11 @@ var burger = {
     orm.delete("burgers", condition, (res) => {
       cb(res);
     });
+  },
+  confirm(condition, cb) {
+    orm.confirm("burgers", condition, (res) => {
+      cb(res);
+    });
   }
 };
 

@@ -122,6 +122,20 @@ orm = {
 
       cb(result);
     });
+  },
+  confirm(table, condition, cb) {
+    var queryString = "SELECT * FROM " + table;
+
+    queryString += " WHERE ";
+    queryString += condition;
+
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
+      }
+
+      cb(result);
+    });
   }
 
 };

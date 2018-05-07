@@ -33,13 +33,28 @@ router.get("/", function(req, res) {
 
 // post or insert
 router.post("/api/burgers", function(req, res) {
-  burger.create(
-      ["burger_name", "devoured"],
-      [req.body.burger_name, req.body.devoured], function(result) {
-      // Send back the ID of the new quote
-      res.json({"id": result.insertId});
-  }
-  );
+  var condition = "burger_name = '" + req.body.burger_name + "'";
+
+  burger.confirm(condition, function(data) {
+    console.log("burger.confirm duplicate data if length >= 1: " + data.length);
+    if (data.length >= 1) {
+      // on duplicate end post
+      res.status(200).end();
+    } else {
+    // otherwise burger is added to list
+      burger.create(
+        ["burger_name", "devoured"],
+        [req.body.burger_name, req.body.devoured], function(result) {
+        // Send back the ID of the new quote
+        res.json({"id": result.insertId});
+      }
+      );
+    }
+
+    return true;
+  });
+
+
 });
 
 // update
