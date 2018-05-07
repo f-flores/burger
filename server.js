@@ -1,11 +1,11 @@
-/* *******************************************************************************************************
+/* ************************************************************************************************
  *
  * File Name: server.js
  * Description: server using express and express-handlebars for burger app.
  * Author: Fabian Flores
  * Date: May, 2018
  *
- * *******************************************************************************************************/
+ * *************************************************************************************************/
 
 var express = require("express");
 var expresshbs = require("express-handlebars");
@@ -14,7 +14,6 @@ var bodyParser = require("body-parser");
 var PORT = process.env.PORT || 3000;
 var app = express();
 var routes;
-
 
 // serve static content from the public directory (e.g. burger_style.css)
 app.use(express.static("public"));
@@ -28,9 +27,7 @@ app.engine("handlebars", expresshbs({
   "defaultLayout": "main",
   "helpers": {
     "addOne": (value) => parseInt(value, 10) + 1
-    // ,
-    // "makeId": (value) => "qtn" + (parseInt(value, 10) + 1).toString(),
-    // "selErrorId": (value) => "select-error-" + (parseInt(value,10) + 1).toString()
+    // function addOne is not used
   }
 }));
 app.set("view engine", "handlebars");

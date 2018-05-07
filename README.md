@@ -1,11 +1,12 @@
 # Eat-Da-Burger
+
 Burger logger.
 
 ## Description
 
 Eat-Da-Burger is designed to be a restaurant app. A user can enter a burger name or select one from an options menu. The burger then appears on the left side of the screen, waiting to be devoured. Once it is devoured with a press of a button, it moves to the right side of the screen. This application stores every burger and its devoured state in a database.
 
-## Technical Information
+## How Eat-Da-Burger Works
 
 The burger app is essentially a logger that leverages the  Node and Express for the server and API routes, MySQL for database storage, and Handlebars for html template design and a custom ORM (Object Relational Mapping).
 
